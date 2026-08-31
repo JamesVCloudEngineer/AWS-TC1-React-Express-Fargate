@@ -5,3 +5,5 @@ node_modules/
 terraform/.terraform/
 terraform/*.tfstate
 terraform/*.tfstate.backup
+terraform/tc1-jenkins-key.pem
+companion-app/

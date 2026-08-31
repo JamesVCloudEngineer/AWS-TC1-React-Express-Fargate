@@ -1,23 +1,29 @@
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react'
 import './App.css';
+import API_URL from './config'
 
 function App() {
+  const [successMessage, setSuccessMessage] = useState() 
+  const [failureMessage, setFailureMessage] = useState() 
+
+  useEffect(() => {
+    const getId = async () => {
+      try {
+        const resp = await fetch(API_URL)
+        setSuccessMessage((await resp.json()).id)
+      }
+      catch(e) {
+        setFailureMessage(e.message)
+      }
+    }
+    getId()
+  })
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {!failureMessage && !successMessage ? 'Fetching...' : null}
+      {failureMessage ? failureMessage : null}
+      {successMessage ? successMessage : null}
     </div>
   );
 }
