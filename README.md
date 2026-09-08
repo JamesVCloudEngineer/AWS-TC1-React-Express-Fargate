@@ -1,4 +1,4 @@
-# AWS Tech Challenge 1: React/Express App on ECS Fargate with Jenkins CI/CD
+# AWS TC1: React/Express App on ECS Fargate with Jenkins CI/CD
 
 A full-stack web application deployed on AWS ECS Fargate, with a Jenkins pipeline handling continuous integration and deployment. The frontend is built in React, the backend in Express, and traffic is routed through an Application Load Balancer to containerized services running behind the scenes.
 
